@@ -1,0 +1,80 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2014-okt-10, 15:57:10
+    Author     : khatab
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    margin: auto;
+    width : 50em;
+}
+
+#right {
+  position: fixed;
+  top: 250px;
+  right: 75px;
+  width: 300px;
+  bottom: 250px;
+  background-color: #adadad;
+  padding: 10px;
+}
+
+#grey {
+    background-color: #f5f5f5;
+}
+
+#input{
+    margin-right: auto;
+    width : 20em; 
+}
+
+header {
+    background-image:  url(../resources/img/question-marks.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 100% 130%;
+    border-radius:25px;
+    box-shadow: 8px 8px 5px gainsboro
+}
+
+header h1{  
+    padding-top: 0.5em;
+    font-size: 60px;
+    font-family: monospace;
+    font-style: italic;
+    font-weight: 200;
+    font-variant: small-caps;
+    color: black;
+    text-align: auto;
+    margin-left: 0.5em;
+    vertical-align: middle;
+}
+
+header h2{
+    font-family: monospace;
+    font-style: italic;
+    color: blue;
+    text-align: auto;
+    vertical-align: middle;
+    margin-left: 0.5em;
+}
+
+footer {
+    position:fixed;
+    bottom:10px;
+    height:30px;
+    width: 50em;
+}
+
+#error {
+    color:  red;
+}
+
