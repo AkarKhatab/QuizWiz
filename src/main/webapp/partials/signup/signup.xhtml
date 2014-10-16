@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>login</title>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content"> 
+                <section>
+                    <h3>Registrera ett konto för att börja spela</h3>
+                    <div class="account-wall">
+                        <form>
+                        <label>First Name</label>
+                        <input type="text" name="firstname" class="form-control">
+                        </input>
+                        <label>Last Name</label>
+                        <input type="text" name="lastname" class="form-control">
+                        </input>
+                        <label>Email Address</label>
+                        <input type="email" name="email" class="form-control">
+                        </input>
+                        <label>Username</label>
+                        <input type="text" name="username" class="form-control">
+                        </input>
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control">
+                        </input>
+                        <label><input type="checkbox" name="terms"> 
+                                Jag godkänner <a href="../../partials/userTerms/userTerms.xhtml">spelets användaravtal</a>.
+                            </input></label>
+                        <br>
+                        <input type="submit" value="Sign up" class="btn btn-lg btn-primary pull-right">
+                        </input>
+                        </br>
+                        <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </section>
+            </ui:define>
+            </ui:composition>
+            <br />
+        </h:body>
+
+    </f:view>
+</html>
+
