@@ -9,18 +9,37 @@
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
                 
-                <h3>Game</h3>
-                <div id="question">
-                    <div id="banner">
-                        <h1>Fråga???</h1>
+                
+                <div class="gameContainer">
+                    <h3 style="margin-left: 180px">Game</h3>
+                    <div id="question">
+                        <div id="banner">
+                            <!--                        <h2><center>Fråga??</center></h2>-->
+                            <h:outputLabel value="#{askQuestion.question}"></h:outputLabel>
                     </div>
                 </div>
+                <br></br>
                 <div class="myButton">
-                    <a href="#" class="myButton1">green</a>
+                    <a href="#" style="text-decoration: none"><center><font color="#000000"> Alternativ 1</font></center></a>   
                 </div>
-                
-                
-            </ui:define>
-        </ui:composition>
-    </h:body>
+                <div class="myButton">
+                    <a href="#" style="text-decoration: none"><center><font color="#000000"> Alternativ 2</font></center></a>    
+                </div>
+                <br></br>
+                <br></br>
+                <div class="myButton">
+                    <a href="#"  style="text-decoration: none"><center><font color="#000000"> Alternativ 3</font></center></a> 
+                </div>
+                <div class="myButton">
+                    <a href="#" style="text-decoration: none"><center><font color="#000000"> Alternativ 4</font></center></a>     
+                </div>
+            </div>
+            
+            
+            
+            
+            
+        </ui:define>
+    </ui:composition>
+</h:body>
 </html>

@@ -166,8 +166,9 @@ footer {
 }
 
 #wrapper {
-  
+  border-radius: 13px;
   border: 1px solid black;
+  border-color: #ffffff;
   background-color: white;
   width: 450px;
   left: 200px;
@@ -181,6 +182,7 @@ footer {
 #question {
   
   border: 1px solid black;
+  border-radius: 13px;
   background-color: white;
   width: 450px;
   left: 200px;
@@ -196,29 +198,20 @@ footer {
 	border:1px solid #0d0f0e;
 	display:inline-block;
 	cursor:pointer;
-	color:#000000;
 	font-family:arial;
 	font-size:17px;
 	padding:20px 50px;
 	text-decoration:none;
-        width: 220px;
+        width: 223px;
+}
+.myButton:hover{
+    font-size: 23px;
 }
 
-.myButton1 {
-	
-        left: 200px;
-        
+.gameContainer{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: 100px;
+  
 }
-
-.myButton2 {
-	
-        left: 425px;
-        
-}
-
-
-
-
-
-
-
