@@ -12,20 +12,21 @@
                 <title>QuizWiz</title>
             </f:facet>
         </h:head>
-        <div id="right">
-            highscore
-        </div>
+        
         
         <h:body>
             <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
                 <section>
                     <h3>The Wiz Quiz</h3>
-                    <p:layout style="min-width: 400px; min-height: 200px;">
-                        <p:layoutUnit position="center" style="min-width: 400px; min-height: 200px;">
-                            Presentation av spelet.
-                        </p:layoutUnit>
-                    </p:layout>
+                    <div id="wrapper">
+                        <div id="banner">
+                            <h1>Presentation av spelet</h1>
+                        </div>
+                    </div>
+                    <div id="rightsidebar">
+                                <p>Highscore</p>
+                            </div>
                 </section>
             </ui:define>
             </ui:composition>

@@ -21,7 +21,7 @@ body {
   position: fixed;
   top: 250px;
   right: 75px;
-  width: 300px;
+  width: 175px;
   bottom: 250px;
   background-color: #adadad;
   padding: 10px;
@@ -153,3 +153,72 @@ footer {
     display: block;
     margin-top: 10px;
 }
+
+#rightsidebar {
+  background-color: aqua;
+  border: 1px solid black;
+  top: 285px;
+  bottom: 26px;
+  right: 130px;
+  width: 150px;
+  height: 300px;
+  position: fixed;
+}
+
+#wrapper {
+  
+  border: 1px solid black;
+  background-color: white;
+  width: 450px;
+  left: 200px;
+  height: 400px;
+  top: 285px;
+}
+#banner {
+  position: relative;
+}
+
+#question {
+  
+  border: 1px solid black;
+  background-color: white;
+  width: 450px;
+  left: 200px;
+  height: 250px;
+  top: 285px;
+}
+
+.myButton {
+	background-color:#ffffff;
+	-moz-border-radius:13px;
+	-webkit-border-radius:13px;
+	border-radius:13px;
+	border:1px solid #0d0f0e;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:arial;
+	font-size:17px;
+	padding:20px 50px;
+	text-decoration:none;
+        width: 220px;
+}
+
+.myButton1 {
+	
+        left: 200px;
+        
+}
+
+.myButton2 {
+	
+        left: 425px;
+        
+}
+
+
+
+
+
+
+
