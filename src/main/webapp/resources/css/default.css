@@ -155,14 +155,14 @@ footer {
 }
 
 #rightsidebar {
-  background-color: aqua;
-  border: 1px solid black;
-  top: 285px;
+  background-color: white;
+/*  border: 1px solid black;*/
+  top: 180px;
   bottom: 26px;
-  right: 130px;
-  width: 150px;
+  right: 80px;
+  width: 180px;
   height: 300px;
-  position: fixed;
+  position: absolute;
 }
 
 #wrapper {
