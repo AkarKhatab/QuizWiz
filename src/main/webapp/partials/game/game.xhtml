@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
@@ -20,13 +21,15 @@
                     </div>
                     <br></br>
                     <div>
-                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" action="#?faces-redirect=true" value="#{askQuestion.ans1}" class="myButton"></h:commandButton>   
-                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" action="#?faces-redirect=true" value="#{askQuestion.ans2}" class="myButton"></h:commandButton>
+                        <h:commandButton actionListener="#{askQuestion.checkIfCorrectAnswer()}" value="#{askQuestion.ans1}" class="myButton">
+                            <f:param name="answer" value="hej"  />
+                        </h:commandButton>   
+                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" value="#{askQuestion.ans2}" class="myButton"></h:commandButton>
                     </div>
                     <br></br>
                     <div>
-                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" action="#?faces-redirect=true" value="#{askQuestion.ans3}" class="myButton"></h:commandButton>   
-                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" action="#?faces-redirect=true" value="#{askQuestion.ans4}" class="myButton"></h:commandButton>
+                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" value="#{askQuestion.ans3}" class="myButton"></h:commandButton>   
+                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" value="#{askQuestion.ans4}" class="myButton"></h:commandButton>
                     </div>
                 </div>
                 </h:form>

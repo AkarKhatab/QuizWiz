@@ -162,7 +162,7 @@ footer {
     right: 80px;
     width: 180px;
     height: 300px;
-    position: static;
+    position: absolute;
 }
 
 #wrapper {
