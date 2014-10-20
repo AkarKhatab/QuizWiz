@@ -21,15 +21,21 @@
                     </div>
                     <br></br>
                     <div>
-                        <h:commandButton actionListener="#{askQuestion.checkIfCorrectAnswer()}" value="#{askQuestion.ans1}" class="myButton">
-                            <f:param name="answer" value="hej"  />
-                        </h:commandButton>   
-                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" value="#{askQuestion.ans2}" class="myButton"></h:commandButton>
+                        <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans1}" class="myButton"> 
+                            <f:param name="answer" value="#{askQuestion.ans1}" />
+                        </h:commandButton>
+                        <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans2}" class="myButton"> 
+                            <f:param name="answer" value="#{askQuestion.ans2}" />
+                        </h:commandButton>
                     </div>
                     <br></br>
                     <div>
-                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" value="#{askQuestion.ans3}" class="myButton"></h:commandButton>   
-                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" value="#{askQuestion.ans4}" class="myButton"></h:commandButton>
+                        <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans3}" class="myButton"> 
+                            <f:param name="answer" value="#{askQuestion.ans3}" />
+                        </h:commandButton>
+                        <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans4}" class="myButton"> 
+                            <f:param name="answer" value="#{askQuestion.ans4}" />
+                        </h:commandButton>
                     </div>
                 </div>
                 </h:form>

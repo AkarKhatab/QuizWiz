@@ -12,18 +12,20 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.bean.*;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+
 
 /**
  *
  * @author zolic
  */
-@ManagedBean
-@RequestScoped
+@ManagedBean(name = "askQuestion")
+@SessionScoped
 public class AskQuestion implements Serializable{
     
-    private static final Logger LOG = Logger.getLogger(AskQuestion.class.getName());
+    private static Logger LOG = Logger.getLogger(AskQuestion.class.getName());
     private String question, ans1, ans2, ans3, ans4, correctAnswer;
     private IO io;
     private ArrayList<ArrayList<String>> allQuestions;
@@ -34,6 +36,7 @@ public class AskQuestion implements Serializable{
         io = new IO();
         getArray();
     }
+
     
     public void getArray() throws Throwable{
         allQuestions = io.getArray();
@@ -63,7 +66,11 @@ public class AskQuestion implements Serializable{
     }
     
     public void checkIfCorrectAnswer(){
-          
+        Map<String,String> params = 
+                FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	String answer = params.get("answer");
+        
+        LOG.log(Level.INFO, ""+ answer);
         getNewQuestion();
     }
     
@@ -106,4 +113,5 @@ public class AskQuestion implements Serializable{
     public void setAns4(String ans4) {
         this.ans4 = ans4;
     }
+
 }
