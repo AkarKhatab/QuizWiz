@@ -9,35 +9,27 @@
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
                 
-                
+                <h:form>
                 <div class="gameContainer">
                     <h3 style="margin-left: 180px">Game</h3>
                     <div id="question">
                         <div id="banner">
-                            <h2><center>Fråga??</center></h2>
+                            <h2><center>#{askQuestion.question}</center></h2>
                             
                         </div>
                     </div>
                     <br></br>
-                    <div class="myButton">
-                        <a href="#" style="text-decoration: none"><center><font color="#000000"> Alternativ 1</font></center></a>   
-                    </div>
-                    <div class="myButton">
-                        <a href="#" style="text-decoration: none"><center><font color="#000000"> Alternativ 2</font></center></a>    
+                    <div>
+                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" action="#?faces-redirect=true" value="#{askQuestion.ans1}" class="myButton"></h:commandButton>   
+                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" action="#?faces-redirect=true" value="#{askQuestion.ans2}" class="myButton"></h:commandButton>
                     </div>
                     <br></br>
-                    <br></br>
-                    <div class="myButton">
-                        <a href="#"  style="text-decoration: none"><center><font color="#000000"> Alternativ 3</font></center></a> 
-                    </div>
-                    <div class="myButton">
-                        <a href="#" style="text-decoration: none"><center><font color="#000000"> Alternativ 4</font></center></a>     
+                    <div>
+                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" action="#?faces-redirect=true" value="#{askQuestion.ans3}" class="myButton"></h:commandButton>   
+                        <h:commandButton actionListener="#{askQuestion.getNewQuestion()}" action="#?faces-redirect=true" value="#{askQuestion.ans4}" class="myButton"></h:commandButton>
                     </div>
                 </div>
-                
-                
-                
-                
+                </h:form>
                 
             </ui:define>
         </ui:composition>

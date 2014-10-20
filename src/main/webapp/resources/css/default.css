@@ -18,13 +18,13 @@ body {
 }
 
 #right {
-  position: fixed;
-  top: 250px;
-  right: 75px;
-  width: 175px;
-  bottom: 250px;
-  background-color: #adadad;
-  padding: 10px;
+    position: fixed;
+    top: 250px;
+    right: 75px;
+    width: 175px;
+    bottom: 250px;
+    background-color: #adadad;
+    padding: 10px;
 }
 
 #grey {
@@ -155,63 +155,57 @@ footer {
 }
 
 #rightsidebar {
-  background-color: white;
-/*  border: 1px solid black;*/
-  top: 180px;
-  bottom: 26px;
-  right: 80px;
-  width: 180px;
-  height: 300px;
-  position: absolute;
+    background-color: white;
+    /*  border: 1px solid black;*/
+    top: 180px;
+    bottom: 26px;
+    right: 80px;
+    width: 180px;
+    height: 300px;
+    position: static;
 }
 
 #wrapper {
-  border-radius: 13px;
-  border: 1px solid black;
-  border-color: #ffffff;
-  background-color: white;
-  width: 450px;
-  left: 200px;
-  height: 400px;
-  top: 285px;
+    border-radius: 13px;
+    border: 1px solid black;
+    border-color: #ffffff;
+    background-color: white;
+    width: 450px;
+    left: 200px;
+    height: 400px;
+    top: 285px;
 }
 #banner {
-  position: relative;
+    position: relative;
 }
 
 #question {
-  
-  border: 1px solid black;
-  border-radius: 13px;
-  background-color: white;
-  width: 450px;
-  left: 200px;
-  height: 250px;
-  top: 285px;
+    
+    border: 1px solid black;
+    border-radius: 13px;
+    background-color: white;
+    width: 450px;
+    left: 200px;
+    height: 250px;
+    top: 285px;
 }
 
 .myButton {
-	background-color:#ffffff;
-	-moz-border-radius:13px;
-	-webkit-border-radius:13px;
-	border-radius:13px;
-	border:1px solid #0d0f0e;
-	display:inline-block;
-	cursor:pointer;
-	font-family:arial;
-	font-size:17px;
-	padding:20px 50px;
-	text-decoration:none;
-        width: 223px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid black;
+    width: 220px;
+    height: 70px;
+    border-radius: 13px;
 }
 .myButton:hover{
     font-size: 23px;
 }
 
 .gameContainer{
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: 100px;
-  
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: 100px;
+    
 }

@@ -10,11 +10,14 @@ import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 /**
  *
  * @author zolic
  */
+
 public class IO{
     private static final String STANDARDFRAGOR = "fragor.txt";
     private ArrayList<String> questions;
@@ -23,20 +26,9 @@ public class IO{
     private static final Logger LOG = Logger.getLogger(IO.class.getName());
     
     public IO() throws UnsupportedEncodingException, FileNotFoundException {
-        if (OSDetector.isMac()) {
-            br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(STANDARDFRAGOR), "ISO-8859-1"));
-        } else if (OSDetector.isWindows()) {
-            br = new BufferedReader(new FileReader(STANDARDFRAGOR));
-            
-            //
-        } else if (OSDetector.isLinux()) {
-            String file = (System.getProperty("user.home") + "/Desktop/" + STANDARDFRAGOR);
-            br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(file), "ISO-8859-1"));
-            
-        }
-        
+        String file = (System.getProperty("user.home") + "/Desktop/" + STANDARDFRAGOR);
+        br = new BufferedReader(new InputStreamReader(
+                new FileInputStream(file), "ISO-8859-1"));
     }
     
     private void readFile() throws Exception {
@@ -51,13 +43,11 @@ public class IO{
         String line;
         while ((line = br.readLine()) != null) {
             if (line.equals("")) {
-                @SuppressWarnings("unchecked")
-                        ArrayList<String> tempQuest = ((ArrayList<String>) questions.clone());
+                ArrayList<String> tempQuest = ((ArrayList<String>) questions.clone());
                 allQuestions.add(tempQuest);
                 questions.clear();
             } else {
                 questions.add(line);
-                LOG.log(Level.INFO, "Question: " + line, this);
             }
         }
         br.close();
