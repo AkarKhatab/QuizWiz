@@ -12,17 +12,21 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 
 /**
  *
  * @author zolic
  */
-@ManagedBean(name = "askQuestion")
-@SessionScoped
+@Named
+@ViewScoped
 public class AskQuestion implements Serializable{
     
     private static Logger LOG = Logger.getLogger(AskQuestion.class.getName());
@@ -44,11 +48,12 @@ public class AskQuestion implements Serializable{
     }
     
     public void getNewQuestion(){
-        questNr++;
-        nextQuestion = allQuestions.get(questNr);
-        this.question = nextQuestion.get(0);
-        this.correctAnswer = nextQuestion.get(1);
-        shuffleArray(nextQuestion);
+        this.questNr++;
+        LOG.log(Level.INFO, "Nummer: " + questNr);
+        this.nextQuestion = this.allQuestions.get(questNr);
+        this.question = this.nextQuestion.get(0);
+        this.correctAnswer = this.nextQuestion.get(1);
+        shuffleArray(this.nextQuestion);
         
     }
     
