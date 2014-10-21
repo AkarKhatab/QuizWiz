@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="alert alert-info">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                    ×</button>
+                                <span class="glyphicon glyphicon-info-sign"></span> <strong>Game Over</strong>
+                                <hr class="message-inner-separator"></hr>
+                                <p>
+                                    Your score is #{askQuestion.score}. 
+                                    <br>Do you want to submit it? </br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" onclick="myFunction()" class="btn btn-labeled btn-success">
+                    <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Yes</button>
+                    <button type="button" onclick="game.xhtml" class="btn btn-labeled btn-danger">
+                    <span class="btn-label"><i class="glyphicon glyphicon-remove"></i></span>No</button>
+                </div>
+            </ui:define>
+        </ui:composition>
+        
+<script>
+function myFunction() {
+    var player = prompt("Please enter your name", "");
+    
+    if (player !== null) {
+        document.getElementById("demo").innerHTML =
+        "Hello " + player + "! How are you today?";
+    }
+}
+</script>
+        
+    </h:body>
+</html>
+
