@@ -32,20 +32,20 @@ public class AskQuestion implements Serializable{
     private ArrayList<ArrayList<String>> allQuestions;
     private ArrayList<String> nextQuestion;
     private int questNr = -1;
-    private int score;
+    private GetScore getScore;
     public AskQuestion() throws UnsupportedEncodingException, FileNotFoundException, Throwable{
         io = new IO();
         getArray();
     }
     public void getArray() throws Throwable{
         allQuestions = io.getArray();
+        getScore = new GetScore();
         getNewQuestion();
-        score = 0;
     }
     
     public void getNewQuestion() throws IOException{
         this.questNr++;
-        if(questNr == 2){
+        if(questNr == 5){
             LOG.log(Level.INFO, "questNr är 4");
             endGame();
         }
@@ -74,8 +74,7 @@ public class AskQuestion implements Serializable{
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 	String answer = params.get("answer");
         if(correctAnswer.equals(answer)){
-            score++;
-            LOG.log(Level.INFO, "Current score: " + score);
+            getScore.incScore();
         }
         getNewQuestion();
     }
@@ -122,14 +121,6 @@ public class AskQuestion implements Serializable{
     
     public void setAns4(String ans4) {
         this.ans4 = ans4;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
 }
