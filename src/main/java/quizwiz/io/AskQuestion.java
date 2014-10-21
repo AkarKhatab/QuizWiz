@@ -7,15 +7,12 @@
 package quizwiz.io;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -35,25 +32,27 @@ public class AskQuestion implements Serializable{
     private ArrayList<ArrayList<String>> allQuestions;
     private ArrayList<String> nextQuestion;
     private int questNr = -1;
-    private int score = 0;
+    private int score;
     public AskQuestion() throws UnsupportedEncodingException, FileNotFoundException, Throwable{
         io = new IO();
         getArray();
     }
-
-    
     public void getArray() throws Throwable{
         allQuestions = io.getArray();
         getNewQuestion();
+        score = 0;
     }
     
-    public void getNewQuestion(){
+    public void getNewQuestion() throws IOException{
         this.questNr++;
-        LOG.log(Level.INFO, "Nummer: " + questNr);
-        this.nextQuestion = this.allQuestions.get(questNr);
-        this.question = this.nextQuestion.get(0);
-        this.correctAnswer = this.nextQuestion.get(1);
-        shuffleArray(this.nextQuestion);
+        if(questNr == 2){
+            LOG.log(Level.INFO, "questNr är 4");
+            endGame();
+        }
+        nextQuestion = allQuestions.get(questNr);
+        this.question = nextQuestion.get(0);
+        this.correctAnswer = nextQuestion.get(1);
+        shuffleArray(nextQuestion);
         
     }
     
@@ -67,16 +66,22 @@ public class AskQuestion implements Serializable{
         this.ans2 = shuffled.get(1);
         this.ans3 = shuffled.get(2);
         this.ans4 = shuffled.get(3);
-        LOG.log(Level.INFO, "CorrectAnswer{0}", correctAnswer);
+        
     }
     
-    public void checkIfCorrectAnswer(){
+    public void checkIfCorrectAnswer() throws IOException{
         Map<String,String> params = 
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 	String answer = params.get("answer");
-        
-        LOG.log(Level.INFO, ""+ answer);
+        if(correctAnswer.equals(answer)){
+            score++;
+            LOG.log(Level.INFO, "Current score: " + score);
+        }
         getNewQuestion();
+    }
+    
+    public void endGame() throws IOException{
+        FacesContext.getCurrentInstance().getExternalContext().redirect("highscorePopup.xhtml"); 
     }
     
     public String getQuestion() {
@@ -117,6 +122,14 @@ public class AskQuestion implements Serializable{
     
     public void setAns4(String ans4) {
         this.ans4 = ans4;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
 }
