@@ -7,11 +7,14 @@
 package quizwiz.io;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 /**
  *
@@ -24,31 +27,25 @@ public class Users implements Serializable{
     private Long id;
     @Column(name = "player_name", nullable = false, updatable = false)
     private String name;
-    private int highScore;
-    
-    public Users(){
-        
+
+    @OneToMany
+    @OrderBy("highscore")
+    private List<Highscore> highscores;
+
+    public List<Highscore> getHighscores() {
+        return highscores;
     }
-    
-    public Users(String name, int score){
-        this.name = name;
-        this.highScore = score;
+
+    public void setHighscores(List<Highscore> highscores) {
+        this.highscores = highscores;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setScore(int score) {
-        this.highScore = score;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public int getScore() {
-        return highScore;
     }
 
     public Long getId() {
@@ -58,10 +55,4 @@ public class Users implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
-
-    @Override
-    public String toString() {
-        return "Users{" + "id=" + id + ", name=" + name + ", score=" + highScore + '}';
-    }
-    
 }
