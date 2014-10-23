@@ -19,16 +19,17 @@ import javax.faces.bean.RequestScoped;
  */
 
 public class IO{
-    private static final String STANDARDFRAGOR = "fragor.txt";
+    private static final String STANDARDFRAGOR = "/Users/behrozkeyvannia/Desktop/fragor1.txt";
     private ArrayList<String> questions;
     private ArrayList<ArrayList<String>> allQuestions;
     private BufferedReader br;
     private static final Logger LOG = Logger.getLogger(IO.class.getName());
-    //private File file = new File("/behrozkeyvannia/Skrivbord/fragor.txt");
+   // private File file = new File("/Users/behrozkeyvannia/Desktop/fragor1.txt");
     
     public IO() throws UnsupportedEncodingException, FileNotFoundException {
         String file = (System.getProperty("user.home") + "/Desktop/" + STANDARDFRAGOR);
-        br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+        br = new BufferedReader(new InputStreamReader(new FileInputStream(STANDARDFRAGOR))); 
+//KOMMENTERA AV FILE DÄR UPPE IFALL DU INTE ANVÄNDER MAC OCH ERSÄTT "STANDARDFRAGOR" I "br" TILL "file"
         //System.out.println("****************" + file.getPath());
     }
     
