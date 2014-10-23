@@ -18,21 +18,29 @@ and open the template in the editor.
                     <h:form>
                         <h:panelGrid rowClasses="4" >
                             <h:outputText value="Question: " />
-                            <textArea class="textArea" rows="4" cols="40">
-                            </textArea>
+                            <h:inputText class="inputText" size="50" value="#{ownQuestion.question}" >
+                                
+                            </h:inputText>
+                            <br></br>
                             <h:outputText value="The right answer: " />   
-                            <h:inputText class="inputText" size="35"/>
+                            <h:inputText class="inputText" size="35" value="#{ownQuestion.rightAnswer}">
+                            </h:inputText>
+                            <br></br>
                              <h:outputText value="Option nr 2: " />   
-                            <h:inputText class="inputText" size="35"/>
+                            <h:inputText class="inputText" size="35" value="#{ownQuestion.ans2}"></h:inputText>
+                            <br></br>
                              <h:outputText value="Option nr 3: " />   
-                             <h:inputText class="inputText" size="35"/>
+                             <h:inputText class="inputText" size="35" value="#{ownQuestion.ans3}"></h:inputText>
+                             <br></br>
                              <h:outputText value="Option nr 4:  " />   
-                            <h:inputText class="inputText" size="35" />  
+                            <h:inputText class="inputText" size="35" value="#{ownQuestion.ans4}"></h:inputText>  
+                            <br></br>
+                            <h:commandButton action="#{ownQuestion.addOwnQ()}" value="Submit" class="myButton">
+                            </h:commandButton>
                      </h:panelGrid> 
                 </h:form>
                 </div>
             </ui:define>
         </ui:composition>
-        
         </h:body>
 </html>
