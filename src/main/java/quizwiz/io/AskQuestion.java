@@ -69,7 +69,7 @@ public class AskQuestion implements Serializable {
     }
     
     public void shuffleArray(ArrayList<String> list){
-        ArrayList<String> shuffled = new ArrayList<>();
+        ArrayList<String> shuffled = new ArrayList<String>();
         for(int i = 1; i<=4; i++){
             shuffled.add(list.get(i));
         }
