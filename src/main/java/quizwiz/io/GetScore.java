@@ -26,6 +26,10 @@ public class GetScore implements Serializable{
         score++;
         LOG.log(Level.INFO, "Score: " + getScore());
     }
+    
+    public void resetScore(){
+        score = 0;
+    }
 
     public int getScore() {
         return score;

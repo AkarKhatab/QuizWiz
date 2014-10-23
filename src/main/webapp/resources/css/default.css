@@ -227,3 +227,20 @@ hr.message-inner-separator
 .btn-label {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;}
 .btn-labeled {padding-top: 0;padding-bottom: 0;}
 .btn { margin-bottom:10px; }
+
+.inputText {
+    padding: 10px;
+    border: solid 1px #dcdcdc;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+.inputText:focus{
+    box-shadow: 0 0 5px 1px #969696
+}
+
+.textArea{
+    padding: 10px;
+    border: solid 1px #dcdcdc;
+}
+.textArea:focus{
+    box-shadow: 0 0 5px 1px #969696
+}

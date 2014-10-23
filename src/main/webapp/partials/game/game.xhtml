@@ -11,33 +11,37 @@
             <ui:define name="content">
                 
                 <h:form>
-                <div class="gameContainer">
-                    <h3 style="margin-left: 180px">Game</h3>
-                    <div id="question">
-                        <div id="banner">
-                            <h2><center>#{askQuestion.question}</center></h2>
-                            
+                    <h:panelGroup id="questionPanel">
+                        <div class="gameContainer">
+                            <h3 style="margin-left: 180px">Game</h3>
+                            <div id="question">
+                                <div id="banner">
+                                    <h2><center>#{askQuestion.question}</center></h2>
+                                    <br></br>
+                                    <h4><center>Current score: #{getScore.score}</center></h4>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div>
+                                <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans1}" class="myButton"> 
+                                    <f:param name="answer" value="#{askQuestion.ans1}" />
+                                    <f:ajax execute="@form" render="questionPanel" />
+                                </h:commandButton>
+                                <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans2}" class="myButton"> 
+                                    <f:param name="answer" value="#{askQuestion.ans2}" />
+                                </h:commandButton>
+                            </div>
+                            <br></br>
+                            <div>
+                                <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans3}" class="myButton"> 
+                                    <f:param name="answer" value="#{askQuestion.ans3}" />
+                                </h:commandButton>
+                                <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans4}" class="myButton"> 
+                                    <f:param name="answer" value="#{askQuestion.ans4}" />
+                                </h:commandButton>
+                            </div>
                         </div>
-                    </div>
-                    <br></br>
-                    <div>
-                        <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans1}" class="myButton"> 
-                            <f:param name="answer" value="#{askQuestion.ans1}" />
-                        </h:commandButton>
-                        <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans2}" class="myButton"> 
-                            <f:param name="answer" value="#{askQuestion.ans2}" />
-                        </h:commandButton>
-                    </div>
-                    <br></br>
-                    <div>
-                        <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans3}" class="myButton"> 
-                            <f:param name="answer" value="#{askQuestion.ans3}" />
-                        </h:commandButton>
-                        <h:commandButton action="#{askQuestion.checkIfCorrectAnswer}" value="#{askQuestion.ans4}" class="myButton"> 
-                            <f:param name="answer" value="#{askQuestion.ans4}" />
-                        </h:commandButton>
-                    </div>
-                </div>
+                    </h:panelGroup>
                 </h:form>
                 
             </ui:define>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content">
+                <div class="gameContainer">
+                    <h3>Write your own question</h3>
+                    <h:form>
+                        <h:panelGrid rowClasses="4" >
+                            <h:outputText value="Question: " />
+                            <textArea class="textArea" rows="4" cols="40">
+                            </textArea>
+                            <h:outputText value="The right answer: " />   
+                            <h:inputText class="inputText" size="35"/>
+                             <h:outputText value="Option nr 2: " />   
+                            <h:inputText class="inputText" size="35"/>
+                             <h:outputText value="Option nr 3: " />   
+                             <h:inputText class="inputText" size="35"/>
+                             <h:outputText value="Option nr 4:  " />   
+                            <h:inputText class="inputText" size="35" />  
+                     </h:panelGrid> 
+                </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+        
+        </h:body>
+</html>
