@@ -31,13 +31,14 @@ public class Users implements Serializable{
     @OneToMany
     @OrderBy("highscore")
     private List<Highscore> highscores;
+    private int highscore;
 
-    public List<Highscore> getHighscores() {
-        return highscores;
+    public int getHighscore() {
+        return highscore;
     }
 
-    public void setHighscores(List<Highscore> highscores) {
-        this.highscores = highscores;
+    public void setHighscores(int highscore) {
+        this.highscore = highscore;
     }
 
     public void setName(String name) {

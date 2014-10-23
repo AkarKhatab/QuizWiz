@@ -19,12 +19,12 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @Named
-public class Highscore implements Serializable {
+public class PlayerName implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private int highscore;
+    private int playerName;
 
     protected Highscore() {
     }
