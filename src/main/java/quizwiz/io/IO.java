@@ -19,7 +19,7 @@ import javax.faces.bean.RequestScoped;
  */
 
 public class IO{
-    private static final String STANDARDFRAGOR = "/Users/behrozkeyvannia/Desktop/fragor1.txt";
+    private static final String STANDARDFRAGOR = "fragor.txt";
     private ArrayList<String> questions;
     private ArrayList<ArrayList<String>> allQuestions;
     private BufferedReader br;
@@ -27,7 +27,8 @@ public class IO{
     //private File file = new File("/behrozkeyvannia/Skrivbord/fragor.txt");
     
     public IO() throws UnsupportedEncodingException, FileNotFoundException {
-        br = new BufferedReader(new InputStreamReader(new FileInputStream(STANDARDFRAGOR)));
+        String file = (System.getProperty("user.home") + "/Desktop/" + STANDARDFRAGOR);
+        br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
         //System.out.println("****************" + file.getPath());
     }
     
