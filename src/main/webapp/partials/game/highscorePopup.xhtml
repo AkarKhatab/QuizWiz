@@ -18,31 +18,39 @@
                                 <span class="glyphicon glyphicon-info-sign"></span> <strong>Game Over</strong>
                                 <hr class="message-inner-separator"></hr>
                                 <p>
-                                    <h:outputText value="#{getScore.score}" />
+                                    <h:form id="scoreForm">
+                                    <h:outputText value="#{getScore.score}">
+                                        <f:param name="score" value="#{highscore.highscore}"/>
                                     <br>Do you want to submit it? </br>
+                                    </h:form>
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <button type="button" onclick="myFunction()" class="btn btn-labeled btn-success">
+                    <button id="yesButton" type="button" onclick="showPageElement('hiddenSubmit')" class="btn btn-labeled btn-success">
                     <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Yes</button>
-                    <button type="button" onclick="game.xhtml" class="btn btn-labeled btn-danger">
+                    <button id="noButton" type="button" onclick="game.xhtml" class="btn btn-labeled btn-danger">
                     <span class="btn-label"><i class="glyphicon glyphicon-remove"></i></span>No</button>
+                    <div id="hiddenSubmit">
+                        <h:form>
+                        <h:outputText value="Your name: " />
+                        <br></br>
+                            <h:inputText id="inputName" class="inputText" size="50" 
+                                         validatorMessage="You need to type in your name. 3-20 characters.">
+                                <f:validateLength minimum="3" maximum="20"></f:validateLength>
+                                <f:param name="name" value="#{highscore.name}"
+                            </h:inputText>
+                            <h:message for="inputQuestion" style="color: red"/>
+                            <br></br>
+                            <br></br>
+                            <h:commandButton action="" value="Submit" class="myButton">
+                            </h:commandButton>
+                        </h:form>    
+                    </div>
+                    
                 </div>
             </ui:define>
         </ui:composition>
-        
-<script>
-function myFunction() {
-    var player = prompt("Please enter your name", "");
-    
-    if (player !== null) {
-        document.getElementById("demo").innerHTML =
-        "Hello " + player + "! How are you today?";
-    }
-}
-</script>
-        
     </h:body>
 </html>
 

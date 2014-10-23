@@ -6,12 +6,15 @@
 package quizwiz.io;
 
 import java.io.Serializable;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -24,13 +27,12 @@ public class Highscore implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "player_name")
+    private String name;
+    @Column(name = "highscore")
     private int highscore;
 
     protected Highscore() {
-    }
-    
-    public Highscore(int score) {
-        this.highscore = score;
     }
     
     public int getHighscore(){
@@ -38,8 +40,16 @@ public class Highscore implements Serializable {
         return this.highscore;
     }
 
-    public void setHighscore(int highscore) {
+    public void setHighscore() {
         this.highscore = highscore;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
     

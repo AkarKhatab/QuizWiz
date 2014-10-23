@@ -244,3 +244,7 @@ hr.message-inner-separator
 .textArea:focus{
     box-shadow: 0 0 5px 1px #969696
 }
+
+#hiddenSubmit{
+    display: none;
+}
