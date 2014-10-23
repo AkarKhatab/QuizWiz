@@ -34,15 +34,6 @@ public class Highscore implements Serializable {
 
     protected Highscore() {
     }
-    
-    public int getHighscore(){
-        
-        return this.highscore;
-    }
-
-    public void setHighscore() {
-        this.highscore = highscore;
-    }
 
     public String getName() {
         return name;
@@ -51,6 +42,16 @@ public class Highscore implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getHighscore() {
+        return highscore;
+    }
+
+    public void setHighscore(int highscore) {
+        this.highscore = highscore;
+    }
     
-    
+    public String getTheName(){
+        return name;
+    }
 }
