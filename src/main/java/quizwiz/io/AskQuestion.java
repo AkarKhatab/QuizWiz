@@ -6,10 +6,8 @@
 
 package quizwiz.io;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,6 +55,8 @@ public class AskQuestion implements Serializable {
     
     public void getNewQuestion() throws IOException{
         this.questNr++;
+        if(questNr == 0)
+            gs.resetScore();
         if(questNr == 5){
             LOG.log(Level.INFO, "questNr är 4");
             endGame();
