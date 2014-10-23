@@ -197,9 +197,11 @@ footer {
     width: 220px;
     height: 70px;
     border-radius: 13px;
+    
 }
 .myButton:hover{
     font-size: 23px;
+    background-color: #dcdcdc;
 }
 
 .gameContainer{
