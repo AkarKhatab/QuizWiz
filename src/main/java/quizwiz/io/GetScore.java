@@ -19,15 +19,12 @@ import javax.inject.Named;
 @Named
 @SessionScoped
 public class GetScore implements Serializable{
-    private int score = 0;
+    private int score;
     private static Logger LOG = Logger.getLogger(GetScore.class.getName());
-    public GetScore() {
-        
-    }
     
     public void incScore() {
-        this.score++;
-        LOG.log(Level.INFO, "Score: " + score);
+        score++;
+        LOG.log(Level.INFO, "Score: " + getScore());
     }
 
     public int getScore() {
@@ -37,6 +34,5 @@ public class GetScore implements Serializable{
     public void setScore(int score) {
         this.score = score;
     }
-    
     
 }

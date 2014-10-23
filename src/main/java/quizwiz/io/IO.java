@@ -51,6 +51,7 @@ public class IO{
             }
         }
         br.close();
+        
     }
     
     public ArrayList<ArrayList<String>> getArray() throws Throwable {

@@ -13,8 +13,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 
@@ -24,22 +26,32 @@ import javax.inject.Named;
  */
 @Named
 @ViewScoped
-public class AskQuestion implements Serializable{
+public class AskQuestion implements Serializable {
     
     private static Logger LOG = Logger.getLogger(AskQuestion.class.getName());
     private String question, ans1, ans2, ans3, ans4, correctAnswer;
-    private IO io;
+    private transient IO io;
     private ArrayList<ArrayList<String>> allQuestions;
     private ArrayList<String> nextQuestion;
     private int questNr = -1;
-    private GetScore getScore;
-    public AskQuestion() throws UnsupportedEncodingException, FileNotFoundException, Throwable{
-        io = new IO();
-        getArray();
+
+    @Inject
+    private GetScore gs;
+
+    @PostConstruct
+    private void init() {
+        try {
+            io = new IO();
+            getArray();
+        } catch (Exception ex) {
+            Logger.getLogger(AskQuestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Throwable ex) {
+            Logger.getLogger(AskQuestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    public void getArray() throws Throwable{
-        allQuestions = io.getArray();
-        getScore = new GetScore();
+
+    private void getArray() throws Throwable{
+        this.allQuestions = io.getArray();
         getNewQuestion();
     }
     
@@ -74,7 +86,8 @@ public class AskQuestion implements Serializable{
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 	String answer = params.get("answer");
         if(correctAnswer.equals(answer)){
-            getScore.incScore();
+            LOG.log(Level.INFO, "Rätt");
+            gs.incScore();
         }
         getNewQuestion();
     }
@@ -122,5 +135,6 @@ public class AskQuestion implements Serializable{
     public void setAns4(String ans4) {
         this.ans4 = ans4;
     }
+
 
 }
