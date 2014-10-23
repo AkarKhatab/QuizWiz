@@ -19,16 +19,16 @@ import javax.faces.bean.RequestScoped;
  */
 
 public class IO{
-    private static final String STANDARDFRAGOR = "fragor.txt";
+    private static final String STANDARDFRAGOR = "/Users/behrozkeyvannia/Desktop/fragor1.txt";
     private ArrayList<String> questions;
     private ArrayList<ArrayList<String>> allQuestions;
     private BufferedReader br;
     private static final Logger LOG = Logger.getLogger(IO.class.getName());
+    //private File file = new File("/behrozkeyvannia/Skrivbord/fragor.txt");
     
     public IO() throws UnsupportedEncodingException, FileNotFoundException {
-        String file = (System.getProperty("user.home") + "/Desktop/" + STANDARDFRAGOR);
-        br = new BufferedReader(new InputStreamReader(
-                new FileInputStream(file), "ISO-8859-1"));
+        br = new BufferedReader(new InputStreamReader(new FileInputStream(STANDARDFRAGOR)));
+        //System.out.println("****************" + file.getPath());
     }
     
     private void readFile() throws Exception {
