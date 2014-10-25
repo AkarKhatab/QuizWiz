@@ -50,6 +50,7 @@ public class AskQuestion implements Serializable {
 
     private void getArray() throws Throwable{
         this.allQuestions = io.getArray();
+        Collections.shuffle(allQuestions);
         getNewQuestion();
     }
     

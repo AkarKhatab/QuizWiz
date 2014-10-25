@@ -24,10 +24,10 @@ public class IO{
     private ArrayList<ArrayList<String>> allQuestions;
     private BufferedReader br;
     private static final Logger LOG = Logger.getLogger(IO.class.getName());
-    private File file = new File("fragor.txt");
+   // private File file = new File("fragor.txt");
     
     public IO() throws UnsupportedEncodingException, FileNotFoundException {
-        String file = (System.getProperty("user.home") + "/Desktop/" + STANDARDFRAGOR);
+        String file = (System.getProperty("user.home") + "/NetBeansProjects/QuizWiz/src/main/java/quizwiz/io/" + STANDARDFRAGOR);
         br = new BufferedReader(new InputStreamReader(new FileInputStream(file))); 
 //KOMMENTERA AV FILE DÄR UPPE IFALL DU INTE ANVÄNDER MAC OCH ERSÄTT "STANDARDFRAGOR" I "br" TILL "file"
         //System.out.println("****************" + file.getPath());

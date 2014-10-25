@@ -15,15 +15,42 @@
         </h:head>
         <h:body>
             <ui:composition template="/WEB-INF/template.xhtml">
-            <ui:define name="content"> 
-                <section>
-                    
-                </section>
-            </ui:define>
+                <ui:define name="content"> 
+                    <section>
+                        <h:form>
+                        <h:panelGroup rendered="#{login.validationComplete and (!login.isUsernameValid or !login.isPasswordValid)}">
+                            <h:outputText value="Username is a Required Field" rendered="#{!login.isUsernameValid}" style="color:red"></h:outputText>
+                            <br></br>
+                                <h:outputText value="Password is a Required Field" rendered="#{!login.isPasswordValid}" style="color:red"></h:outputText>
+                        </h:panelGroup>
+                        
+                        <table>
+                            <tr>
+                                <td><h:outputText value="Enter Username: " /></td>
+                                <td><h:inputText id="username" 
+                                                 value="#{login.username}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h:outputText value="Enter Password: " /></td>
+                                <td><h:inputSecret id="password" 
+                                                   value="#{login.password}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><h:commandButton value="Login" 
+                                                     action="#{login.checkValidity}"/>
+                                </td>
+                            </tr>
+                        </table>
+                        </h:form>
+                    </section>
+                </ui:define>
             </ui:composition>
             <br />
         </h:body>
-
+        
     </f:view>
 </html>
 
