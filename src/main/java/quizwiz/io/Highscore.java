@@ -16,7 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.servlet.http.HttpServletRequest;
-import static quizwiz.io.Pages.redirectToEndGamePage;
+import quizwiz.io.Pages;
 
 /**
  *
@@ -33,6 +33,8 @@ public class Highscore implements Serializable {
     private String name;
     @Column(name = "highscore")
     private int highscore;
+    
+    Pages pages = new Pages();
 
     public Highscore() {
     }
@@ -56,6 +58,6 @@ public class Highscore implements Serializable {
     public void saveHighscoreAndRedirectToGamePage(int highscore) throws IOException {
         System.out.println("Highscoooooore: " + highscore);
         this.setHighscore(highscore);
-        redirectToEndGamePage();
+        pages.redirectToEndGamePage();
     }
 }

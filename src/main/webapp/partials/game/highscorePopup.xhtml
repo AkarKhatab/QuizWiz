@@ -27,9 +27,19 @@
                     <button id="yesButton" type="button" onclick="showPageElement('hiddenSubmit')" class="btn btn-labeled btn-success">
                         Yes
                     </button>
-                    <button id="noButton" type="button" outcome="game" class="btn btn-labeled btn-danger">
+                    <button id="noButton" type="button" onclick="showPageElement('askForNewGame')" class="btn btn-labeled btn-danger">
                         No
                     </button>
+                    <div id="askForNewGame" hidden="true">
+                        <h:form>
+                            Start new game?
+                            <br/>
+                            <h:commandLink action="game" value="Yes" class="btn btn-labeled btn-success">
+                            </h:commandLink>
+                            <h:commandLink action="home" value="No" class="btn btn-labeled btn-danger">
+                            </h:commandLink>
+                        </h:form>
+                    </div>
                     <div id="hiddenSubmit">
                         <h:form>
                         <h:outputText value="Your name: " />
@@ -41,9 +51,9 @@
                             <h:message for="inputQuestion" style="color: red"/>
                             <br></br>
                             <br></br>
-                            <h:commandButton action="#{highscore.saveHighscoreAndRedirectToGamePage(getScore.score)}" value="Submit" class="myButton">
+                            <h:commandButton action="#{highscore.saveHighscoreAndRedirectToGamePage(getScore.score)}" value="Submit" class="btn btn-labeled btn-success">
                             </h:commandButton>
-                        </h:form>    
+                        </h:form>
                     </div>
                     
                 </div>

@@ -17,7 +17,7 @@ import javax.inject.Named;
  *
  * @author AkarKhatab
  */
-@Named(value="pages")
+@Named()
 @RequestScoped
 public  class Pages implements Serializable {
 
@@ -29,12 +29,13 @@ public  class Pages implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().redirect("game.xhtml");
     }
     
-    public static void redirectToEndGamePage() throws IOException {
+    public void redirectToEndGamePage() throws IOException {
         System.out.println("Redirecting to end game page.");
         FacesContext.getCurrentInstance().getExternalContext().redirect("endGamePage.xhtml");
     }
     
-    public static void redirectToStartPage(int highscore) throws IOException {
+    public void redirectToHomePage() throws IOException {
+        System.out.println("CONTEXT::::: " + FacesContext.getCurrentInstance().getExternalContext());
         FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
     }
 }

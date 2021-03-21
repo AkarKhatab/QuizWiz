@@ -21,8 +21,10 @@
                             </div>
                         </div>
                     </div>
-                    <h:commandButton value="Start new game" action="#{pages.redirectToGamePage()}" class="btn btn-labeled btn-success">
+                    <h:form>
+                    <h:commandButton action="#{pages.redirectToGamePage}" value="Start new game" class="btn btn-labeled btn-success">
                     </h:commandButton>
+                    </h:form>
                 </div>
             </ui:define>
         </ui:composition>
