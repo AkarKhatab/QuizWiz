@@ -5,6 +5,7 @@
  */
 package quizwiz.io;
 
+import java.io.IOException;
 import java.io.Serializable;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -15,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.servlet.http.HttpServletRequest;
+import static quizwiz.io.Pages.redirectToEndGamePage;
 
 /**
  *
@@ -32,7 +34,7 @@ public class Highscore implements Serializable {
     @Column(name = "highscore")
     private int highscore;
 
-    protected Highscore() {
+    public Highscore() {
     }
 
     public String getName() {
@@ -47,11 +49,13 @@ public class Highscore implements Serializable {
         return highscore;
     }
 
-    public void setHighscore(int highscore) {
+    public void setHighscore(int highscore) throws IOException {
         this.highscore = highscore;
     }
     
-    public String getTheName(){
-        return name;
+    public void saveHighscoreAndRedirectToGamePage(int highscore) throws IOException {
+        System.out.println("Highscoooooore: " + highscore);
+        this.setHighscore(highscore);
+        redirectToEndGamePage();
     }
 }

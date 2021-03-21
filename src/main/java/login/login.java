@@ -7,6 +7,7 @@
 package login;
 
 import java.io.IOException;
+import java.io.Serializable;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -17,7 +18,7 @@ import javax.inject.Named;
  */
 @Named
 @ViewScoped
-public class login {
+public class login implements Serializable {
 	private String username;
 	private String password;
 	private boolean isUsernameValid;

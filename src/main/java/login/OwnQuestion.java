@@ -39,7 +39,7 @@ public class OwnQuestion implements Serializable{
     public void pre() {
     }
     public void writeToFile(ArrayList<String> list) throws IOException{
-        String file = (System.getProperty("user.home") + "/NetBeansProjects/QuizWiz/src/main/java/quizwiz/io/" + STANDARDFRAGOR);
+        String file = (System.getProperty("user.home") + "/Workspace/Skola/dat057-webapplikationer/QuizWiz/src/main/java/quizwiz/io/" + STANDARDFRAGOR);
         bw = new BufferedWriter(new FileWriter(file,true));
         Iterator<String> it = list.iterator();
         while (it.hasNext()) {
