@@ -11,6 +11,9 @@ import java.io.Serializable;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
@@ -18,52 +21,13 @@ import javax.inject.Named;
  */
 @Named
 @ViewScoped
+@NoArgsConstructor@Getter@Setter
 public class login implements Serializable {
 	private String username;
 	private String password;
 	private boolean isUsernameValid;
 	private boolean isPasswordValid;
 	private boolean validationComplete = false;
-	
-	public String getUsername() {
-		return username;
-	}
-	
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
-	public String getPassword() {
-		return password;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
-	public boolean getIsUsernameValid() {
-		return isUsernameValid;
-	}
-	
-	public void setUsernameValid(boolean isUsernameValid) {
-		this.isUsernameValid = isUsernameValid;
-	}
-	
-	public boolean getIsPasswordValid() {
-		return isPasswordValid;
-	}
-	
-	public void setPasswordValid(boolean isPasswordValid) {
-		this.isPasswordValid = isPasswordValid;
-	}
-	
-	public boolean getValidationComplete() {
-		return validationComplete;
-	}
-	
-	public void setValidationComplete(boolean validationComplete) {
-		this.validationComplete = validationComplete;
-	}
 
 	public String checkValidity() throws IOException {
 		if (this.username == null || this.username.equals("") ){

@@ -16,6 +16,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 /**
@@ -24,6 +27,7 @@ import javax.inject.Named;
  */
 @Named
 @ViewScoped
+@NoArgsConstructor@Getter@Setter
 public class AskQuestion implements Serializable {
     
     private static Logger LOG = Logger.getLogger(AskQuestion.class.getName());
@@ -96,46 +100,4 @@ public class AskQuestion implements Serializable {
     public void endGame() throws IOException{
         FacesContext.getCurrentInstance().getExternalContext().redirect("highscorePopup.xhtml"); 
     }
-    
-    public String getQuestion() {
-        return question;
-    }
-    
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-    
-    public String getAns1() {
-        return ans1;
-    }
-    
-    public void setAns1(String ans1) {
-        this.ans1 = ans1;
-    }
-    
-    public String getAns2() {
-        return ans2;
-    }
-    
-    public void setAns2(String ans2) {
-        this.ans2 = ans2;
-    }
-    
-    public String getAns3() {
-        return ans3;
-    }
-    
-    public void setAns3(String ans3) {
-        this.ans3 = ans3;
-    }
-    
-    public String getAns4() {
-        return ans4;
-    }
-    
-    public void setAns4(String ans4) {
-        this.ans4 = ans4;
-    }
-
-
 }

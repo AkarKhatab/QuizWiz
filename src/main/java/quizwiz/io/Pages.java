@@ -35,7 +35,6 @@ public  class Pages implements Serializable {
     }
     
     public void redirectToHomePage() throws IOException {
-        System.out.println("CONTEXT::::: " + FacesContext.getCurrentInstance().getExternalContext());
         FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
     }
 }

@@ -11,6 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
@@ -18,6 +21,7 @@ import javax.inject.Named;
  */
 @Named
 @SessionScoped
+@NoArgsConstructor@Getter@Setter
 public class GetScore implements Serializable{
     private int score;
     private static Logger LOG = Logger.getLogger(GetScore.class.getName());
@@ -30,13 +34,4 @@ public class GetScore implements Serializable{
     public void resetScore(){
         score = 0;
     }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-    
 }
