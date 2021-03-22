@@ -14,48 +14,50 @@ and open the template in the editor.
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
                 <div class="gameContainer">
-                    <h3>Write your own question</h3>
-                    <h:form>
-                        <h:panelGrid rowClasses="4" >
-                            <h:outputText value="Question: " />
-                            <h:inputText id="inputQuestion" class="inputText" size="50" value="#{ownQuestion.question}" 
-                                         validatorMessage="You need to type in a Question. 10-120 characters.">
-                                <f:validateLength minimum="10" maximum="120"></f:validateLength>
-                            </h:inputText>
-                            <h:message for="inputQuestion" style="color: red"/>
-                            <br></br>
-                            <h:outputText value="The right answer: " />   
-                            <h:inputText id="inputAnswer1" class="inputText" size="35" value="#{ownQuestion.rightAnswer}"
-                                         validatorMessage="You need to type in an answer. 1-30 characters." >
-                                         <f:validateLength minimum="1" maximum="30" ></f:validateLength>
-                            </h:inputText>
-                            <h:message for="inputAnswer1" style="color: red"/>
-                            <br></br>
-                             <h:outputText value="Option nr 2: " />   
-                             <h:inputText id="inputAnswer2" class="inputText" size="35" value="#{ownQuestion.ans2}"
-                                         validatorMessage="You need to type in an answer. 1-30 characters.">
-                            <f:validateLength minimum="1" maximum="30" ></f:validateLength>
-                            </h:inputText>
-                            <h:message for="inputAnswer2" style="color: red"/>
-                            <br></br>
-                             <h:outputText value="Option nr 3: " />   
-                             <h:inputText id="inputAnswer3" class="inputText" size="35" value="#{ownQuestion.ans3}"
-                                          validatorMessage="You need to type in an answer. 1-30 characters.">
-                             <f:validateLength minimum="1" maximum="30" ></f:validateLength>
-                             </h:inputText>
-                            <h:message for="inputAnswer3" style="color: red"/>
-                             <br></br>
-                             <h:outputText value="Option nr 4:  " />   
-                             <h:inputText id="inputAnswer4" class="inputText" size="35" value="#{ownQuestion.ans4}"
-                                         validatorMessage="You need to type in an answer. 1-30 characters.">
-                            <f:validateLength minimum="1" maximum="30" ></f:validateLength>
-                            </h:inputText>  
-                            <h:message for="inputAnswer4" style="color: red"/>
-                            <br></br>
-                            <h:commandButton action="#{ownQuestion.addOwnQ()}" value="Submit" class="myButton">
-                            </h:commandButton>
-                     </h:panelGrid> 
-                </h:form>
+                    <div>
+                        <h3>Write your own question</h3>
+                        <h:form>
+                            <h:panelGrid rowClasses="4" >
+                                <h:outputText value="Question: " />
+                                <h:inputText id="inputQuestion" class="inputText" size="50" value="#{ownQuestion.question}" 
+                                             validatorMessage="You need to type in a Question. 10-120 characters.">
+                                    <f:validateLength minimum="10" maximum="120"></f:validateLength>
+                                </h:inputText>
+                                <h:message for="inputQuestion" style="color: red"/>
+                                <br></br>
+                                <h:outputText value="The right answer: " />   
+                                <h:inputText id="inputAnswer1" class="inputText" size="35" value="#{ownQuestion.rightAnswer}"
+                                             validatorMessage="You need to type in an answer. 1-30 characters." >
+                                             <f:validateLength minimum="1" maximum="30" ></f:validateLength>
+                                </h:inputText>
+                                <h:message for="inputAnswer1" style="color: red"/>
+                                <br></br>
+                                 <h:outputText value="Option nr 2: " />   
+                                 <h:inputText id="inputAnswer2" class="inputText" size="35" value="#{ownQuestion.ans2}"
+                                             validatorMessage="You need to type in an answer. 1-30 characters.">
+                                <f:validateLength minimum="1" maximum="30" ></f:validateLength>
+                                </h:inputText>
+                                <h:message for="inputAnswer2" style="color: red"/>
+                                <br></br>
+                                 <h:outputText value="Option nr 3: " />   
+                                 <h:inputText id="inputAnswer3" class="inputText" size="35" value="#{ownQuestion.ans3}"
+                                              validatorMessage="You need to type in an answer. 1-30 characters.">
+                                 <f:validateLength minimum="1" maximum="30" ></f:validateLength>
+                                 </h:inputText>
+                                <h:message for="inputAnswer3" style="color: red"/>
+                                 <br></br>
+                                 <h:outputText value="Option nr 4:  " />   
+                                 <h:inputText id="inputAnswer4" class="inputText" size="35" value="#{ownQuestion.ans4}"
+                                             validatorMessage="You need to type in an answer. 1-30 characters.">
+                                <f:validateLength minimum="1" maximum="30" ></f:validateLength>
+                                </h:inputText>  
+                                <h:message for="inputAnswer4" style="color: red"/>
+                                <br></br>
+                                <h:commandButton action="#{ownQuestion.addOwnQ()}" value="Submit" type="submit" class="myButton">
+                                </h:commandButton>
+                            </h:panelGrid> 
+                        </h:form>
+                    </div>
                 </div>
             </ui:define>
         </ui:composition>

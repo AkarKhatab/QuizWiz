@@ -16,6 +16,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.servlet.http.HttpServletRequest;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import quizwiz.io.Pages;
 
 /**
@@ -24,6 +27,7 @@ import quizwiz.io.Pages;
  */
 @Entity
 @Named
+@NoArgsConstructor@Getter@Setter
 public class Highscore implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,25 +39,6 @@ public class Highscore implements Serializable {
     private int highscore;
     
     Pages pages = new Pages();
-
-    public Highscore() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getHighscore() {
-        return highscore;
-    }
-
-    public void setHighscore(int highscore) throws IOException {
-        this.highscore = highscore;
-    }
     
     public void saveHighscoreAndRedirectToGamePage(int highscore) throws IOException {
         System.out.println("Highscoooooore: " + highscore);

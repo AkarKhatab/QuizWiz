@@ -15,12 +15,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  * @author khatab
  */
 @Entity
+@NoArgsConstructor@Getter@Setter
 public class Users implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,28 +36,4 @@ public class Users implements Serializable{
     @OrderBy("highscore")
     private List<Highscore> highscores;
     private int highscore;
-
-    public int getHighscore() {
-        return highscore;
-    }
-
-    public void setHighscores(int highscore) {
-        this.highscore = highscore;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

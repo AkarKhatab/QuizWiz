@@ -28,5 +28,4 @@ public class HighscoreRegistry extends AbstractDAO<Highscore, Long> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
 }
