@@ -34,7 +34,6 @@ public class AskQuestion implements Serializable {
     
     private static Logger LOG = Logger.getLogger(AskQuestion.class.getName());
     private String question, ans1, ans2, ans3, ans4;
-    private transient IO io;
     private List<Question> allQuestions;
     private Question currentQuestion;
     private int questNr = -1;
@@ -45,7 +44,6 @@ public class AskQuestion implements Serializable {
     @PostConstruct
     private void init() {
         try {
-            io = new IO();
             getArray();
         } catch (Exception ex) {
             Logger.getLogger(AskQuestion.class.getName()).log(Level.SEVERE, null, ex);
