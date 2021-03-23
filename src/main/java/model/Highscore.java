@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package db;
+package model;
 
 import java.io.Serializable;
 import javax.inject.Named;
@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import util.Constants;
 
 /**
  *
@@ -22,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Named
 @Entity
-@Table(name = "HIGHSCORE")
+@Table(name = Constants.DATABASE_TABLE_HIGHSCORE)
 @XmlRootElement
 public class Highscore implements Serializable {
 

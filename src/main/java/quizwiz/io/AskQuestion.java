@@ -7,7 +7,6 @@
 package quizwiz.io;
 
 import db.DBRepository;
-import db.Highscore;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
@@ -21,6 +20,7 @@ import javax.inject.Named;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model.Question;
 
 
 /**
@@ -33,10 +33,10 @@ import lombok.Setter;
 public class AskQuestion implements Serializable {
     
     private static Logger LOG = Logger.getLogger(AskQuestion.class.getName());
-    private String question, ans1, ans2, ans3, ans4, correctAnswer;
+    private String question, ans1, ans2, ans3, ans4;
     private transient IO io;
-    private ArrayList<ArrayList<String>> allQuestions;
-    private ArrayList<String> nextQuestion;
+    private List<Question> allQuestions;
+    private Question currentQuestion;
     private int questNr = -1;
 
     @Inject
@@ -55,11 +55,7 @@ public class AskQuestion implements Serializable {
     }
 
     private void getArray() throws Throwable{
-        List<Highscore> h = DBRepository.getInstance().getHighscores();
-        for(Highscore item: h){
-            System.out.println("HIGHSCORE: " + item.getId() + " - " + item.getName() + " - " + item.getScore());
-        }
-        this.allQuestions = io.getArray();
+        this.allQuestions = DBRepository.getInstance().getQuestions();
         Collections.shuffle(allQuestions);
         getNewQuestion();
     }
@@ -71,19 +67,20 @@ public class AskQuestion implements Serializable {
         if(questNr == 5){
             LOG.log(Level.INFO, "questNr är 4");
             endGame();
+            return;
         }
-        nextQuestion = allQuestions.get(questNr);
-        this.question = nextQuestion.get(0);
-        this.correctAnswer = nextQuestion.get(1);
-        shuffleArray(nextQuestion);
+        currentQuestion = allQuestions.get(questNr);
+        this.question = currentQuestion.getQuestion();
+        shuffleArray();
         
     }
     
-    public void shuffleArray(ArrayList<String> list){
+    public void shuffleArray(){
         ArrayList<String> shuffled = new ArrayList<String>();
-        for(int i = 1; i<=4; i++){
-            shuffled.add(list.get(i));
-        }
+        shuffled.add(currentQuestion.getCorrectAnswer());
+        shuffled.add(currentQuestion.getAnswer2());
+        shuffled.add(currentQuestion.getAnswer3());
+        shuffled.add(currentQuestion.getAnswer4());
         Collections.shuffle(shuffled);
         this.ans1 = shuffled.get(0);
         this.ans2 = shuffled.get(1);
@@ -96,7 +93,7 @@ public class AskQuestion implements Serializable {
         Map<String,String> params = 
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 	String answer = params.get("answer");
-        if(correctAnswer.equals(answer)){
+        if(currentQuestion.getCorrectAnswer().equals(answer)){
             LOG.log(Level.INFO, "Rätt");
             gs.incScore();
         }

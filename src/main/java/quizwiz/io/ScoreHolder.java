@@ -7,7 +7,8 @@
 package quizwiz.io;
 
 import db.DBRepository;
-import db.Highscore;
+import java.io.IOException;
+import model.Highscore;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +29,7 @@ public class ScoreHolder implements Serializable{
     private int score;
     private String name;
     private static Logger LOG = Logger.getLogger(ScoreHolder.class.getName());
+    private Pages pages = new Pages();
     
     public void incScore() {
         score++;
@@ -38,8 +40,9 @@ public class ScoreHolder implements Serializable{
         score = 0;
     }
     
-    public void save(){
+    public void save() throws IOException{
         System.out.println("SAVEHIGHSCORE " + name + " - " + score);
         DBRepository.getInstance().addHighscore(new Highscore(name, score));
+        pages.redirectToEndGamePage();
     }
 }

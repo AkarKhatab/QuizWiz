@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package db;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -14,15 +14,16 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import util.Constants;
 
 /**
  *
- * @author 46766
+ * @author zolic
  */
 @Entity
-@Table(name = "QUESTIONS")
+@Table(name = Constants.DATABASE_TABLE_QUESTIONS)
 @XmlRootElement
-public class Questions implements Serializable {
+public class Question implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -56,14 +57,22 @@ public class Questions implements Serializable {
     @Column(name = "ANSWER4")
     private String answer4;
 
-    public Questions() {
+    public Question() {
     }
 
-    public Questions(Integer id) {
+    public Question(Integer id) {
         this.id = id;
     }
+    
+    public Question(String question, String correctAnswer, String answer2, String answer3, String answer4) {
+        this.question = question;
+        this.correctAnswer = correctAnswer;
+        this.answer2 = answer2;
+        this.answer3 = answer3;
+        this.answer4 = answer4;
+    }
 
-    public Questions(Integer id, String question, String correctAnswer, String answer2, String answer3, String answer4) {
+    public Question(Integer id, String question, String correctAnswer, String answer2, String answer3, String answer4) {
         this.id = id;
         this.question = question;
         this.correctAnswer = correctAnswer;
@@ -130,10 +139,10 @@ public class Questions implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Questions)) {
+        if (!(object instanceof Question)) {
             return false;
         }
-        Questions other = (Questions) object;
+        Question other = (Question) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

@@ -5,12 +5,14 @@
  */
 package db;
 
+import model.Highscore;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import util.Constants;
 
 /**
  *
@@ -26,19 +28,18 @@ public class HighscoreDao implements Dao<Highscore> {
 
     @Override
     public List<Highscore> getAll() {
-        String sql = "SELECT * FROM HIGHSCORE";
         List<Highscore> list = new ArrayList<>();
 
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            ResultSet rs = stmt.executeQuery(Constants.SQL_GET_ALL_HIGHSCORES);
 
             while (rs.next()) {
 
                 list.add(new Highscore(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getInt("score")
+                        rs.getInt("ID"),
+                        rs.getString("NAME"),
+                        rs.getInt("SCORE")
                 ));
             }
 
@@ -53,9 +54,7 @@ public class HighscoreDao implements Dao<Highscore> {
     public Boolean insert(Highscore item) {
         try {
                 Statement statement = connection.createStatement();
-                statement.executeUpdate("INSERT INTO HIGHSCORE " + "VALUES ("+item.getId() + ", '" + item.getName() + "', " + item.getScore() + ")");
-
-                System.out.println("addHighscore " + item.getName() + " - " + item.getScore());
+                statement.executeUpdate(Constants.SQL_INSERT_HIGHSCORE(item.getId(), item.getName(), item.getScore()));
                 return true;
             } catch (SQLException ex) {
                 System.out.println("addHighscore error: " + ex);
