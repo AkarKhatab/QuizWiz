@@ -16,7 +16,7 @@
                                 <strong>Game Over</strong>
                                 <hr class="message-inner-separator"></hr>
                                 <p>
-                                    <h:outputText value="Your score: #{getScore.score}">
+                                    <h:outputText value="Your score: #{scoreHolder.score}">
                                     </h:outputText>
                                     <br/>
                                     <br>Do you want to submit it? </br>
@@ -44,14 +44,14 @@
                         <h:form>
                         <h:outputText value="Your name: " />
                         <br></br>
-                            <h:inputText id="inputName" class="inputText" size="50" 
+                        <h:inputText id="inputName" value="#{scoreHolder.name}" class="inputText" size="50" 
                                          validatorMessage="You need to type in your name. 3-20 characters.">
                                 <f:validateLength minimum="3" maximum="20"></f:validateLength>
                             </h:inputText>
                             <h:message for="inputQuestion" style="color: red"/>
                             <br></br>
                             <br></br>
-                            <h:commandButton action="#{highscore.saveHighscoreAndRedirectToGamePage(getScore.score)}" value="Submit" class="btn btn-labeled btn-success">
+                            <h:commandButton action="#{scoreHolder.save()}" value="Submit" class="btn btn-labeled btn-success">
                             </h:commandButton>
                         </h:form>
                     </div>

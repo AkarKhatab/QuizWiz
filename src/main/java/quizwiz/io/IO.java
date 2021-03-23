@@ -19,7 +19,7 @@ import javax.faces.bean.RequestScoped;
  */
 
 public class IO{
-    private static final String STANDARDFRAGOR = "fragor.txt";
+    private static final String STANDARDFRAGOR = "C:\\Users\\46766\\Documents\\webapp\\QuizWiz/src/main/java/quizwiz/io/fragor.txt";
     private ArrayList<String> questions;
     private ArrayList<ArrayList<String>> allQuestions;
     private BufferedReader br;
@@ -27,8 +27,8 @@ public class IO{
    // private File file = new File("fragor.txt");
     
     public IO() throws UnsupportedEncodingException, FileNotFoundException {
-        String file = (System.getProperty("user.home") + "/Workspace/Skola/dat057-webapplikationer/QuizWiz/src/main/java/quizwiz/io/" + STANDARDFRAGOR);
-        br = new BufferedReader(new InputStreamReader(new FileInputStream(file))); 
+        //String file = (System.getProperty("user.home") + "/Workspace/Skola/dat057-webapplikationer/QuizWiz/src/main/java/quizwiz/io/" + STANDARDFRAGOR);
+        br = new BufferedReader(new InputStreamReader(new FileInputStream(STANDARDFRAGOR))); 
 //KOMMENTERA AV FILE DÄR UPPE IFALL DU INTE ANVÄNDER MAC OCH ERSÄTT "STANDARDFRAGOR" I "br" TILL "file"
         //System.out.println("****************" + file.getPath());
     }

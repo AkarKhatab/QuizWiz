@@ -6,6 +6,8 @@
 
 package quizwiz.io;
 
+import db.DBRepository;
+import db.Highscore;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
@@ -38,7 +40,7 @@ public class AskQuestion implements Serializable {
     private int questNr = -1;
 
     @Inject
-    private GetScore gs;
+    private ScoreHolder gs;
 
     @PostConstruct
     private void init() {
@@ -53,6 +55,10 @@ public class AskQuestion implements Serializable {
     }
 
     private void getArray() throws Throwable{
+        List<Highscore> h = DBRepository.getInstance().getHighscores();
+        for(Highscore item: h){
+            System.out.println("HIGHSCORE: " + item.getId() + " - " + item.getName() + " - " + item.getScore());
+        }
         this.allQuestions = io.getArray();
         Collections.shuffle(allQuestions);
         getNewQuestion();

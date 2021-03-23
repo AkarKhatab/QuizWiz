@@ -6,6 +6,8 @@
 
 package quizwiz.io;
 
+import db.DBRepository;
+import db.Highscore;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,9 +24,10 @@ import lombok.Setter;
 @Named
 @SessionScoped
 @NoArgsConstructor@Getter@Setter
-public class GetScore implements Serializable{
+public class ScoreHolder implements Serializable{
     private int score;
-    private static Logger LOG = Logger.getLogger(GetScore.class.getName());
+    private String name;
+    private static Logger LOG = Logger.getLogger(ScoreHolder.class.getName());
     
     public void incScore() {
         score++;
@@ -33,5 +36,10 @@ public class GetScore implements Serializable{
     
     public void resetScore(){
         score = 0;
+    }
+    
+    public void save(){
+        System.out.println("SAVEHIGHSCORE " + name + " - " + score);
+        DBRepository.getInstance().addHighscore(new Highscore(name, score));
     }
 }
