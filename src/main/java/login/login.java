@@ -22,7 +22,7 @@ import lombok.Setter;
 @Named
 @ViewScoped
 @NoArgsConstructor@Getter@Setter
-public class login implements Serializable {
+public class Login implements Serializable {
 	private String username;
 	private String password;
 	private boolean isUsernameValid;
