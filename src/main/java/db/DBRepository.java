@@ -41,6 +41,7 @@ public class DBRepository {
 
     private List<Highscore> highscoreList = new ArrayList<>();
     private List<Question> questionsList = new ArrayList<>();
+    private List<Highscore> topScorersList = new ArrayList<>();
 
     private QuestionsDao getQuestionsDao() {
         if (questionsDao == null) {
@@ -117,4 +118,9 @@ public class DBRepository {
             highscoreList.add(highscore);
         }
     }
+    
+    public List<Highscore> getTopScorers() {
+        return highscoreDao.getTopScorers();
+    }
+    
 }

@@ -41,7 +41,7 @@ public class ScoreHolder implements Serializable{
     }
     
     public void save() throws IOException{
-        System.out.println("SAVEHIGHSCORE " + name + " - " + score);
+        System.out.println("SAVE HIGHSCORE " + name + " - " + score);
         DBRepository.getInstance().addHighscore(new Highscore(name, score));
         pages.redirectToEndGamePage();
     }

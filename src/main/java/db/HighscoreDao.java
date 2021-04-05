@@ -61,4 +61,27 @@ public class HighscoreDao implements Dao<Highscore> {
                 return false;
             }
     }
+    
+    public List<Highscore> getTopScorers() {
+        List<Highscore> list = new ArrayList<>();
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(Constants.SQL_GET_TOP_HIGHSCORES);
+
+            while (rs.next()) {
+
+                list.add(new Highscore(
+                        rs.getInt("ID"),
+                        rs.getString("NAME"),
+                        rs.getInt("SCORE")
+                ));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("DBDATA ERROR: " + ex);
+        }
+        
+        return list;
+    }
 }
