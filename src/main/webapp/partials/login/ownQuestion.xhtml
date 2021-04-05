@@ -20,7 +20,7 @@ and open the template in the editor.
                             <h:panelGrid rowClasses="4" >
                                 <h:outputText value="Question: " />
                                 <h:inputText id="inputQuestion" class="inputText" size="50" value="#{ownQuestion.question}" 
-                                             validatorMessage="You need to type in a Question. 10-250 characters.">
+                                             validatorMessage="You need to type in a Question. 3-250 characters.">
                                     <f:validateLength minimum="3" maximum="250"></f:validateLength>
                                 </h:inputText>
                                 <h:message for="inputQuestion" style="color: red"/>

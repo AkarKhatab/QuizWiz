@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -31,31 +32,22 @@
             <ui:insert name="content">Content</ui:insert>
             
         </div>
-        <div id="rightsidebar">
-            <!--            <ul class="list-group">
-                            <li class="page-header">  <h3>Highscore</h3> </li>
-                            <li class="list-group-item"> Berra <span class="badge">32</span></li>
-                           <li class="list-group-item"> Bertil <span class="badge">25</span></li>
-                            <li class="list-group-item"> Nisse <span class="badge">18</span></li>
-                            
-                        </ul>-->
-            
+        <c:if test="true">
+        <div id="rightsidebar">            
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Highscore</h3>
                 </div>
                 <div class="panel-body">
-                            <li class="list-group-item"> Berra <span class="badge">32</span></li>
-                            <li class="list-group-item"> Bertil <span class="badge">25</span></li>
-                            <li class="list-group-item"> Nisse <span class="badge">18</span></li>
-                            <li class="list-group-item"> Mange <span class="badge">15</span></li>
-                            <li class="list-group-item"> Padde <span class="badge">10</span></li>
-                            <li class="list-group-item"> Putte <span class="badge">5</span></li>
+                    <li class="list-group-item"> #{topScorers.firstName} <span class="badge">#{topScorers.firstScore}</span></li>
+                    <li class="list-group-item"> #{topScorers.secondName} <span class="badge">#{topScorers.secondScore}</span></li>
+                    <li class="list-group-item"> #{topScorers.thirdName} <span class="badge">#{topScorers.thirdScore}</span></li>
+                    <li class="list-group-item"> #{topScorers.fourthName} <span class="badge">#{topScorers.fourthScore}</span></li>
+                    <li class="list-group-item"> #{topScorers.fifthName} <span class="badge">#{topScorers.fifthScore}</span></li>
                 </div>
             </div>
-            
         </div>
-        
+        </c:if>
     </h:body>
     
 </html>

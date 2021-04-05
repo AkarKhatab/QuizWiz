@@ -15,13 +15,15 @@ public final class Constants {
         // restrict instantiation
     }
 
-    public static final String DATABASE_URL = "jdbc:derby://localhost:1527/app";
-    public static final String DATABASE_USER_ID = "app";
-    public static final String DATABASE_USER_PASSWORD = "app";
+    public static final String DATABASE_URL = "jdbc:derby://localhost:1527/quizwiz";
+    public static final String DATABASE_USER_ID = "quizwiz";
+    public static final String DATABASE_USER_PASSWORD = "quizwiz";
     public static final String DATABASE_TABLE_HIGHSCORE = "HIGHSCORE";
     public static final String DATABASE_TABLE_QUESTIONS = "QUESTIONS";
     public static final String SQL_GET_ALL_HIGHSCORES = "SELECT * FROM " + DATABASE_TABLE_HIGHSCORE;
     public static final String SQL_GET_ALL_QUESTIONS = "SELECT * FROM " + DATABASE_TABLE_QUESTIONS;
+    public static final String SQL_GET_TOP_HIGHSCORES = 
+            "SELECT * FROM " + DATABASE_TABLE_HIGHSCORE + " ORDER BY SCORE DESC FETCH FIRST 5 ROWS ONLY";
 
     public static String SQL_INSERT_HIGHSCORE(int id, String name, int score) {
         return "INSERT INTO " + DATABASE_TABLE_HIGHSCORE + " VALUES ("
